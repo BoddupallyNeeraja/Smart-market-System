@@ -1,0 +1,73 @@
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background-color: #f8f9fa;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-promo-strip {
+  background: #0b5ed7;
+  color: #fff;
+}
+
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0.75rem 1.5rem rgba(16, 24, 40, 0.12) !important;
+}
+
+.btn {
+  transition: transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.offcanvas.show {
+  visibility: visible !important;
+}
+
+.auth-wrapper {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.auth-card {
+  border-radius: 1rem;
+}
+
+.landing-hero {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f6ff 100%);
+}
+
+.category-card {
+  transition: all 0.2s ease;
+  background-color: #fff;
+}
+
+.category-card:hover {
+  border-color: #0d6efd !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.12);
+}
+
+.footer a {
+  color: #495057;
+}
+
+.footer a:hover {
+  color: #0d6efd;
+}
