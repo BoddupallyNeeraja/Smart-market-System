@@ -1,4 +1,4 @@
-import { lazy, Suspense, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import CartDrawer from './components/CartDrawer/CartDrawer';
@@ -8,17 +8,17 @@ import TopPromoStrip from './components/TopPromoStrip/TopPromoStrip';
 import Footer from './components/Footer/Footer';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
-const Home = lazy(() => import('./pages/Home/Home'));
-const Products = lazy(() => import('./pages/Products/Products'));
-const ProductDetails = lazy(() => import('./pages/ProductDetails/ProductDetails'));
-const Cart = lazy(() => import('./pages/Cart/Cart'));
-const Wishlist = lazy(() => import('./pages/Wishlist/Wishlist'));
-const About = lazy(() => import('./pages/About/About'));
-const Login = lazy(() => import('./pages/Login/Login'));
-const Register = lazy(() => import('./pages/Register/Register'));
-const ForgotPassword = lazy(() => import('./pages/ForgotPassword/ForgotPassword'));
-const MyAccount = lazy(() => import('./pages/MyAccount/MyAccount'));
-const Admin = lazy(() => import('./pages/Admin/Admin'));
+import Home from './pages/Home/Home';
+import Products from './pages/Products/Products';
+import ProductDetails from './pages/ProductDetails/ProductDetails';
+import Cart from './pages/Cart/Cart';
+import Wishlist from './pages/Wishlist/Wishlist';
+import About from './pages/About/About';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import MyAccount from './pages/MyAccount/MyAccount';
+import Admin from './pages/Admin/Admin';
 
 function App() {
   const [isCartDrawerOpen, setCartDrawerOpen] = useState(false);
@@ -36,7 +36,6 @@ function App() {
       <TopPromoStrip />
       <Navbar onCartClick={appActions.openCartDrawer} />
       <main className="container py-4 flex-grow-1">
-        <Suspense fallback={<Loader type="page" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products onCartClick={appActions.openCartDrawer} />} />
@@ -51,7 +50,6 @@ function App() {
             <Route path="/admin" element={<ProtectedRoute adminOnly><Admin /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        </Suspense>
       </main>
 
       <Footer />
