@@ -28,7 +28,9 @@ const Login = () => {
     <section className="auth-wrapper">
       <div className="auth-card card border-0 shadow-sm p-4 p-md-5 mx-auto">
         <h1 className="h3 mb-2">Welcome back</h1>
-        <p className="text-muted mb-4">Login to manage your orders, cart, and wishlist.</p>
+        <p className="text-muted mb-4">
+          Login to manage your orders, cart, and wishlist.
+        </p>
 
         <div className="alert alert-secondary py-2 small">
           Admin demo: <strong>admin@smartmarketplace.com</strong> / <strong>admin123</strong>
@@ -36,6 +38,7 @@ const Login = () => {
 
         {error ? <div className="alert alert-danger py-2">{error}</div> : null}
 
+        {/* LOGIN FORM */}
         <form onSubmit={handleSubmit} className="d-grid gap-3">
           <input
             type="email"
@@ -43,8 +46,11 @@ const Login = () => {
             placeholder="Email"
             required
             value={form.email}
-            onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, email: e.target.value }))
+            }
           />
+
           <input
             type="password"
             className="form-control"
@@ -52,19 +58,17 @@ const Login = () => {
             required
             minLength={6}
             value={form.password}
-            onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))}
+            onChange={(e) =>
+              setForm((prev) => ({ ...prev, password: e.target.value }))
+            }
           />
+
           <button type="submit" className="btn btn-primary btn-lg">
             Login
           </button>
         </form>
 
-        <div className="d-grid gap-2 mt-3">
-          <button type="button" className="btn btn-outline-dark">Continue with Google</button>
-          <button type="button" className="btn btn-outline-primary">Continue with Facebook</button>
-          <button type="button" className="btn btn-outline-secondary">Continue with Apple</button>
-        </div>
-
+        {/* CONTINUE AS GUEST */}
         <button
           type="button"
           className="btn btn-outline-secondary mt-3"
@@ -76,6 +80,7 @@ const Login = () => {
           Continue as Guest
         </button>
 
+        {/* LINKS */}
         <div className="d-flex justify-content-between small text-muted mt-4">
           <Link to="/forgot-password">Forgot password?</Link>
           <span>
